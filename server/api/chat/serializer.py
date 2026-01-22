@@ -1,9 +1,17 @@
 from rest_framework import serializers
-from chat.models import ChatMessage, Message
+from chat.models import ChatRoom, Message
+from users.models import CustomUser
 
 
-
-class ChatMessageSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ChatMessage
-        fields = ("id", "sender", "created_at")
+        model = CustomUser
+        fields = ('id', 'username', 'email', 'is_verified', 'is_admin')
+
+
+class MessageSerializer(serializers.ModelSerializer):
+    sender = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Message
+        fields = ("id", "sender", "timestamp")
