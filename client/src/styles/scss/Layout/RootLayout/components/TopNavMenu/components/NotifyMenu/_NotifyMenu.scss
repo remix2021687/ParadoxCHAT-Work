@@ -4,5 +4,24 @@
     left: 50%;
     width: 30%;
     height: 100vh;
-    background-color: red;
+    background-color: #E1E1E9;
+    padding: 40px;
+
+    .NotifyMenu_header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        
+        h1 {
+            font-size: 27px;
+        }
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+    }
 }
