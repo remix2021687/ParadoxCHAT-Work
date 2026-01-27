@@ -3,33 +3,60 @@ import group_icon from "@assets/svg/group-icon.svg"
 import night_mode from "@assets/svg/night-mode.svg"
 import setting from "@assets/svg/setting.svg"
 import avatar from "@assets/img/avatar.png"
+import phone from "@assets/svg/phone.svg";
+import video from "@assets/svg/video.svg";
+import notify from "@assets/svg/notification.svg";
+import { NotifyMenu } from "./components/NotifyMenu/NotifyMenu"
+import { useState } from "react"
 
 export const TopNavMenu: React.FC = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const notifyOpen = () => {
+        setIsOpen(!isOpen);
+    }
+
     return (
-        <nav className="TopNavMenu">
-            <section className="TopNavMenu_left_block">
-                <button>
-                    <img src={bookmakr} alt="bookmakr" />
-                </button>
-                <button>
-                    <img src={group_icon} alt="bookmakr" />
-                </button>
-                <button>
-                    <img src={night_mode} alt="bookmakr" />
-                </button>
-                <button>
-                    <img src={setting} alt="bookmakr" />
-                </button>
-            </section>
-            <section className="TopNavMenu_center_info_block">
-                <section className="Person_info">
-                    <img src={avatar} alt="avatar" />
-                    <section className="Person_info_name_activity">
-                        <h3>Маша Машева</h3>
-                        <span>был(а) в сети 15 минут назад</span>
+        <>
+            <nav className="TopNavMenu">
+                <section className="TopNavMenu_left_block">
+                    <button>
+                        <img src={bookmakr} alt="bookmakr" />
+                    </button>
+                    <button>
+                        <img src={group_icon} alt="bookmakr" />
+                    </button>
+                    <button>
+                        <img src={night_mode} alt="bookmakr" />
+                    </button>
+                    <button>
+                        <img src={setting} alt="bookmakr" />
+                    </button>
+                </section>
+                <section className="TopNavMenu_center_info_block">
+                    <section className="Person_info">
+                        <img src={avatar} alt="avatar" />
+                        <section className="Person_info_name_activity">
+                            <h3>Test User</h3>
+                            <span>был(а) в сети 15 минут назад</span>
+                        </section>
+                    </section>
+                    <section className="Person_info_voice">
+                        <button>
+                            <img src={phone} alt="phone" />
+                        </button>
+                        <button>
+                            <img src={video} alt="video" />
+                        </button>
                     </section>
                 </section>
-            </section>
-        </nav>
+                <section className="TopNavMenu_left_info_block">
+                    <button onClick={notifyOpen}>
+                        <img src={notify} alt="notification"/>
+                    </button>
+                </section>
+            </nav>
+            <NotifyMenu isOpen={isOpen} />
+        </>
     )
 }
