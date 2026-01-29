@@ -1,7 +1,7 @@
 .NotifyMenu {
     position: absolute;
     top: 0;
-    left: 50%;
+    left: 70%;
     width: 30%;
     height: 100vh;
     background-color: #E1E1E9;
@@ -24,4 +24,13 @@
             cursor: pointer;
         }
     }
+
+    .NotifyMenu_conetent {
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        gap: 35px;
+    }
 }
+
+@import './components/NotifyMenuMessage/NotifyMenuMessage';
