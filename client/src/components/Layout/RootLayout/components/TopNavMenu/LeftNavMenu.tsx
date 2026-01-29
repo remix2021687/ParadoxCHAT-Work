@@ -7,15 +7,12 @@ import phone from "@assets/svg/phone.svg";
 import video from "@assets/svg/video.svg";
 import notify from "@assets/svg/notification.svg";
 import { NotifyMenu } from "./components/NotifyMenu/NotifyMenu"
-import { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { Open } from "@store/Slices/NotifyMenuSlice";
 
 export const TopNavMenu: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const notifyOpen = () => {
-        setIsOpen(!isOpen);
-    }
-
+    const dispatch = useDispatch();
+    
     return (
         <>
             <nav className="TopNavMenu">
@@ -51,12 +48,12 @@ export const TopNavMenu: React.FC = () => {
                     </section>
                 </section>
                 <section className="TopNavMenu_left_info_block">
-                    <button onClick={notifyOpen}>
+                    <button onClick={() => dispatch(Open())}>
                         <img src={notify} alt="notification"/>
                     </button>
                 </section>
             </nav>
-            <NotifyMenu isOpen={isOpen} />
+            <NotifyMenu />
         </>
     )
 }

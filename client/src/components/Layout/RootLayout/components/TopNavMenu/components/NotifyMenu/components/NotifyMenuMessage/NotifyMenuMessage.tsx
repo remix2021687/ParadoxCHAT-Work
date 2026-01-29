@@ -7,7 +7,6 @@ interface NotifyMenuMessageProps {
     text: string;
 }
 
-//Test Any
 export const NotifyMenuMessage: React.FC<NotifyMenuMessageProps> = ({avatar, username, text}) => {
     return (
         <section className="NotifyMenuMessage">
