@@ -16,7 +16,7 @@ export const HomePageUserList: React.FC = () => {
             </section>
             <section className="HomePageUserList_conetent">
                 <label htmlFor="search_input" className="HomePageUserList_conetent_search">
-                    <MagnifyingGlass size={18} />
+                    <MagnifyingGlass size={25} opacity={0.5}/>
                     <input id="search_input" placeholder="Поиск людей и каналов..." />
                 </label>
                 <section className="HomePageUserList_conetent_list_user">
