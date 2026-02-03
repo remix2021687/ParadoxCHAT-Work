@@ -11,14 +11,45 @@
     transition: 0.3s ease;
     cursor: pointer;
 
+    .UserList_avatar {
+        position: relative;
+
+        span {
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            border: 2px solid #FFFFFF;
+            transition: 0.3s ease;
+        }
+    }
+
     .UserList_content {
         display: flex;
         flex-direction: column;
         gap: 8px;
+
+        .UserList_content_header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
     }
+
 
     &:hover {
         background-color: #30323E;
         color: white;
+
+        .UserList_avatar {
+            span {
+                border-color: #30323E;
+            }
+        }
     }
 }
