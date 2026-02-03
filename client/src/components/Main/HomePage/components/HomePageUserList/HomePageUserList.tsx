@@ -9,44 +9,43 @@ export const HomePageUserList: React.FC = () => {
         last_name: string
         avatar: string
         last_message: string
+        last_message_time: string
+        is_online: boolean
     }
 
     const fakeUsers: Array<FakeUser> = [
         {
-            first_name: "Иван",
-            last_name: "Иванов",
-            avatar: avatarImg,
-            last_message: "Привет! Как дела?"
-        },
-        {
             first_name: "Мария",
             last_name: "Петрова",
             avatar: avatarImg,
-            last_message: "Не забудь про встречу завтра."
+            last_message: "Не забудь про встречу завтра.",
+            last_message_time: "15:30",
+            is_online: false
+
         },
         {
             first_name: "Алексей",
             last_name: "Сидоров",
             avatar: avatarImg,
-            last_message: "Отправил тебе документы на почту."
-        },
-        {
-            first_name: "Иван",
-            last_name: "Иванов",
-            avatar: avatarImg,
-            last_message: "Привет! Как дела?"
+            last_message: "Отправил тебе документы на почту.",
+            last_message_time: "14:20",
+            is_online: true
         },
         {
             first_name: "Мария",
             last_name: "Петрова",
             avatar: avatarImg,
-            last_message: "Не забудь про встречу завтра."
+            last_message: "Не забудь про встречу завтра.",
+            last_message_time: "15:30",
+            is_online: false
         },
         {
             first_name: "Алексей",
             last_name: "Сидоров",
             avatar: avatarImg,
-            last_message: "Отправил тебе документы на почту."
+            last_message: "Отправил тебе документы на почту.",
+            last_message_time: "14:20",
+            is_online: true
         }
     ]
 
@@ -77,6 +76,8 @@ export const HomePageUserList: React.FC = () => {
                                 last_name={user.last_name}
                                 avatar={user.avatar}
                                 last_message={user.last_message}
+                                last_message_time={user.last_message_time}
+                                is_online={user.is_online}
                             />
                         )
                     }

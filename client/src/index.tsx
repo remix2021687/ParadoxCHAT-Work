@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { App } from './App'
 import { RouterComponent } from './router/Router'
 import { components } from './components/components'
-import './styles/scss/index.scss'
+import './styles/css/index.min.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
