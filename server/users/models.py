@@ -7,11 +7,11 @@ from django.utils import timezone
 from .managers import CustomUserManager
 from django.utils.translation import gettext_lazy as _
 
+
 class UserNotify(models.Model):
     class TypeNotify(models.TextChoices):
         USERNOTIFY = 'USERNOTIFY', _('UserNotify')
         INCHATROOMNOTIFY = 'INCHROOMNOTIFY', _('InChatroomNotify')
-
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField("CustomUser", on_delete=models.CASCADE)
@@ -22,6 +22,7 @@ class UserNotify(models.Model):
 
     def __str__(self):
         return f"Notify Type: {self.type} Message: {self.message} User {self.id}"
+
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)

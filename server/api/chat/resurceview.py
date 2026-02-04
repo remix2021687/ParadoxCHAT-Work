@@ -16,8 +16,8 @@ class ChatRoomViewSet(ModelViewSet):
         return ChatRoomSerializer
 
     def create(self, request, *args, **kwargs):
-        return Response(status.HTTP_405_METHOD_NOT_ALLOWED, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        return Response("Read Only", status=status.HTTP_405_METHOD_NOT_ALLOWED)
     def update(self, request, *args, **kwargs):
-        return Response(status.HTTP_405_METHOD_NOT_ALLOWED, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        return Response("Read Only", status=status.HTTP_405_METHOD_NOT_ALLOWED)
     def destroy(self, request, *args, **kwargs):
-        return Response(status.HTTP_405_METHOD_NOT_ALLOWED, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        return Response("Read Only", status=status.HTTP_405_METHOD_NOT_ALLOWED)
