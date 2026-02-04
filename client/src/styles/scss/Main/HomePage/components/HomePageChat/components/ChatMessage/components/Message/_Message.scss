@@ -1,0 +1,29 @@
+.Message {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 4px;
+    color: white;
+
+    h5 {
+        font-size: 14px;
+        font-weight: 500;
+        color: #7C8092;
+        text-align: right;
+    }
+
+    .Message_content {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 8px;
+        border-radius: 20px;
+        background-color: rgba(173, 11, 173, 0.8);
+
+        .ChecksIcon {
+            align-self: flex-end;
+        }
+    }
+}
