@@ -1,7 +1,11 @@
 .HomePage {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 19.4% 80.6%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
     width: 100%;
 }
 
 @import "./components/HomePageUserList/HomePageUserList";
+
+@import './components/HomePageChat/HomePageChat';

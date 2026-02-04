@@ -17,7 +17,7 @@ export const UserList: React.FC<UserListProps> = ({ first_name, last_name, avata
             <section className="UserList_content">
                 <section className="UserList_content_header">
                     <h3>{first_name} {last_name}</h3>
-                    <h5>{last_message_time}</h5>
+                    <span>{last_message_time}</span>
                 </section>
                 <p>{last_message}</p>
             </section>
