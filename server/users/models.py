@@ -5,13 +5,12 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from .managers import CustomUserManager
+from users.managers import CustomUserManager
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     username = models.CharField(_("username"), max_length=50, unique=True, blank=False, null=False)
     email = models.EmailField(_('email address'), unique=True)
-    avatar = models.ImageField(_("avatar"), null=True, blank=True, upload_to="uploads/avatars/")
     first_name = models.CharField(_('first name'), max_length=50)
     last_name = models.CharField(_('last name'), max_length=50)
     is_admin = models.BooleanField(_("Admin MOD"), default=False)
