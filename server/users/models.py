@@ -40,15 +40,19 @@ class Connect(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     name = models.CharField(_("Name"), max_length=50)
     url = models.URLField(_("URL"))
+    user = models.OneToOneField("Profile", on_delete=models.CASCADE, default='', related_name='connect')
+
+    def __str__(self):
+        return f'User = {self.user.user.username} | Name = {self.name} | URL = {self.url}'
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     avatar = models.ImageField(_("avatar"), null=True, blank=True, upload_to="uploads/avatars/")
     banner = models.ImageField(_("banner"), null=True, blank=True, upload_to="uploads/banners/")
-    connect = models.ManyToManyField(Connect, blank=True)
     bio = models.TextField(max_length=5000, blank=True)
     followers_count = models.IntegerField(default=0)
     following_count = models.IntegerField(default=0)
+    total_views = models.IntegerField(default=0)
 
     def __str__(self):
         return f'Profile by {self.user.username}'

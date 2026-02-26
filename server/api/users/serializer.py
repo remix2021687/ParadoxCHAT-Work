@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from users.models import CustomUser, Profile
+from users.models import CustomUser, Profile, Connect
 from posts.models import Post
 
 class UserSerializer(serializers.ModelSerializer):
@@ -7,6 +7,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('id', 'first_name', 'last_name', 'username', 'email', 'is_staff', 'is_verified')
+
+class ProfileConnectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Connect
+        fields = ('name', 'url')
 
 class ProfileOwnPostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,7 +21,8 @@ class ProfileOwnPostSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     posts = ProfileOwnPostSerializer(read_only=True, many=True, source='user.post')
+    connects = ProfileConnectSerializer(read_only=True, many=True, source='user.connect')
 
     class Meta:
         model = Profile
-        fields = ('user', 'avatar', 'banner', 'bio', 'followers_count', 'following_count', 'posts')
+        fields = ('user', 'avatar', 'banner', 'bio', 'followers_count', 'following_count', 'connects', 'posts')

@@ -3,6 +3,8 @@ from django.db import models
 
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    photo = models.ImageField(upload_to="posts/photos", blank=True)
+    video = models.FileField(upload_to="posts/videos", blank=True)
     title = models.CharField(max_length=255, blank=False, null=False)
     content = models.TextField(blank=False, null=False, max_length=3000)
     user = models.ForeignKey('users.CustomUser', on_delete=models.CASCADE, related_name="post")
