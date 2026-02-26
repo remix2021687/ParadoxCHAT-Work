@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 class ProfileConnectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Connect
-        fields = ('name', 'url')
+        fields = ('id', 'name', 'url')
 
 class ProfileOwnPostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,7 +21,7 @@ class ProfileOwnPostSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     posts = ProfileOwnPostSerializer(read_only=True, many=True, source='user.post')
-    connects = ProfileConnectSerializer(read_only=True, many=True, source='user.connect')
+    connects = ProfileConnectSerializer(read_only=True, many=True)
 
     class Meta:
         model = Profile
