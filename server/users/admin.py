@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import CustomUser, Profile
+from .models import CustomUser, Profile, Connect
 
-admin.site.register([CustomUser, Profile])
+admin.site.register([CustomUser, Profile, Connect])
 
 class UserAdmin(admin.ModelAdmin):
     fields = ('email', 'first_name', 'last_name')
