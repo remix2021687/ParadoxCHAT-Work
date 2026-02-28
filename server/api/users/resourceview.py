@@ -8,7 +8,7 @@ from users.permissions import IsOwner
 
 class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
 
     def get_queryset(self):
         return Profile.objects.filter(user=self.request.user)
@@ -29,9 +29,12 @@ class ProfileViewSet(viewsets.ModelViewSet):
             connect = Profile.objects.get(pk=pk)
             serializer = ProfileConnectSerializer(connect, data=request.data)
 
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=status.HTTP_200_OK)
+            if connect in request.user.profile.connects.all():
+                if serializer.is_valid():
+                    serializer.save()
+                    return Response(serializer.data, status=status.HTTP_200_OK)
+                else:
+                    return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         except Connect.DoesNotExist:
@@ -39,7 +42,7 @@ class ProfileViewSet(viewsets.ModelViewSet):
                 "error": "Link does not exist"
             }, status=status.HTTP_404_NOT_FOUND)
 
-    @action(detail=False, methods=['delete'], url_path='connect/(?P<pk>[^/]+)/delete')
+    @action(detail=False, methods=['delete'], url_path='connect/(?P<pk>[0-9a-fA-F-]+)/delete')
     def remove_connect(self, request, pk=None):
         try:
             connect = Profile.objects.get(pk=pk)
