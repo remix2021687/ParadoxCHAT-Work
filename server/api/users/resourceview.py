@@ -2,9 +2,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
-from users.models import Profile, Connect
-from .serializer import ProfileSerializer, ProfileConnectSerializer
-from users.permissions import IsOwner
+from users.models import Profile, Connect, VerificationRequest
+from .serializer import ProfileSerializer, ProfileConnectSerializer, VerificationRequestSerializer
 
 class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
@@ -56,3 +55,12 @@ class ProfileViewSet(viewsets.ModelViewSet):
             return Response({
                 "error": "Link does not exist"
             }, status=status.HTTP_404_NOT_FOUND)
+
+    @action(detail=False, methods=['post'], url_path='verify')
+    def verify_profile(self, request):
+        serializer = VerificationRequestSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Request for Verification is created! Have a good day", status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

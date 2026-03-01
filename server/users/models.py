@@ -44,6 +44,17 @@ class Connect(models.Model):
     def __str__(self):
         return f' Name: {self.name} | URL: {self.url}'
 
+class VerificationRequest(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
+    first_name = models.CharField(_("First Name"), max_length=50, blank=False)
+    last_name = models.CharField(_("Last Name"), max_length=50, blank=False)
+    birth_date = models.DateField(_("Birth Date"), null=True, blank=False)
+    content = models.TextField(max_length=5000, blank=False)
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
+
+    def __str__(self):
+        return f'Request by {self.first_name} {self.last_name} | created at {self.created_at}'
+
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     avatar = models.ImageField(_("avatar"), null=True, blank=True, upload_to="uploads/avatars/")
