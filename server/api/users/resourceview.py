@@ -8,7 +8,7 @@ from users.permissions import IsOwner
 
 class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
-    permission_classes = [IsAuthenticated, IsOwner]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Profile.objects.filter(user=self.request.user)
@@ -26,8 +26,8 @@ class ProfileViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['patch'], url_path='connect/(?P<pk>[0-9a-fA-F-]+)/update')
     def update_connect(self, request, pk=None):
         try:
-            connect = Profile.objects.get(pk=pk)
-            serializer = ProfileConnectSerializer(connect, data=request.data)
+            connect = Connect.objects.get(pk=pk)
+            serializer = ProfileConnectSerializer(connect, data=request.data, partial=True)
 
             if connect in request.user.profile.connects.all():
                 if serializer.is_valid():
@@ -45,8 +45,8 @@ class ProfileViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['delete'], url_path='connect/(?P<pk>[0-9a-fA-F-]+)/delete')
     def remove_connect(self, request, pk=None):
         try:
-            connect = Profile.objects.get(pk=pk)
-            if connect.user.profile.connects.all():
+            connect = Connect.objects.get(id=pk)
+            if connect:
                 request.user.profile.connects.remove(connect)
                 connect.delete()
                 return Response(status=status.HTTP_204_NO_CONTENT)
