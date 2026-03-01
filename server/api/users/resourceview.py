@@ -22,12 +22,31 @@ class ProfileViewSet(viewsets.ModelViewSet):
             request.user.profile.connects.add(connect)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    @action(detail=False, methods=['patch'], url_path='connect/(?P<pk>[0-9a-fA-F-]+)/update')
+    def update_connect(self, request, pk=None):
+        try:
+            connect = Connect.objects.get(pk=pk)
+            serializer = ProfileConnectSerializer(connect, data=request.data, partial=True)
 
-    @action(detail=True, methods=['delete'])
+            if connect in request.user.profile.connects.all():
+                if serializer.is_valid():
+                    serializer.save()
+                    return Response(serializer.data, status=status.HTTP_200_OK)
+                else:
+                    return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        except Connect.DoesNotExist:
+            return Response({
+                "error": "Link does not exist"
+            }, status=status.HTTP_404_NOT_FOUND)
+
+    @action(detail=False, methods=['delete'], url_path='connect/(?P<pk>[0-9a-fA-F-]+)/delete')
     def remove_connect(self, request, pk=None):
         try:
-            connect = Profile.objects.get(pk=pk)
-            if connect.user.profile.connects.all():
+            connect = Connect.objects.get(id=pk)
+            if connect:
                 request.user.profile.connects.remove(connect)
                 connect.delete()
                 return Response(status=status.HTTP_204_NO_CONTENT)
