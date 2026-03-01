@@ -46,10 +46,12 @@ class Connect(models.Model):
 
 class VerificationRequest(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, default='')
     first_name = models.CharField(_("First Name"), max_length=50, blank=False)
     last_name = models.CharField(_("Last Name"), max_length=50, blank=False)
     birth_date = models.DateField(_("Birth Date"), null=True, blank=False)
     content = models.TextField(max_length=5000, blank=False)
+    is_approved = models.BooleanField(_("Is Approved"), default=False)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):

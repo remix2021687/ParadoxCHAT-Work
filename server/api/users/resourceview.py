@@ -1,7 +1,7 @@
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import viewsets, status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from users.models import Profile, Connect, VerificationRequest
 from .serializer import ProfileSerializer, ProfileConnectSerializer, VerificationRequestSerializer
 
@@ -59,8 +59,31 @@ class ProfileViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'], url_path='verify')
     def verify_profile(self, request):
         serializer = VerificationRequestSerializer(data=request.data)
+        verify_request = VerificationRequest.objects.filter(user=request.user)
 
         if serializer.is_valid():
-            serializer.save()
-            return Response("Request for Verification is created! Have a good day", status=status.HTTP_201_CREATED)
+            if not verify_request:
+                serializer.save(user=request.user)
+                return Response("Request for Verification is created! Have a good day", status=status.HTTP_201_CREATED)
+            else:
+                return Response("Request is Watching ! Check request later", status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class VerificationRequestViewSet(viewsets.ModelViewSet):
+    serializer_class = VerificationRequestSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
+
+    def get_queryset(self):
+        return VerificationRequest.objects.filter(is_approved=False)
+
+    def create(self, request, *args, **kwargs):
+        return Response("405", status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    def destroy(self, request, *args, **kwargs):
+        return Response("405", status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    @action(detail=True, methods=['post'], url_path='approve')
+    def approve(self, request, pk=None):
+        pass
+
