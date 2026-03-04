@@ -1,22 +1,61 @@
 from rest_framework import serializers
-from users.models import CustomUser, Profile, Connect
+
 from posts.models import Post
+from users.models import CustomUser, Profile, Connect, VerificationRequest
+
 
 class UserSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = CustomUser
         fields = ('id', 'first_name', 'last_name', 'username', 'email', 'is_staff', 'is_verified')
+
 
 class ProfileConnectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Connect
         fields = ('id', 'name', 'url')
 
+
 class ProfileOwnPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('id', 'title', 'content', 'post_likes_count', 'created_at')
+
+
+class VerificationRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VerificationRequest
+        fields = ('id', 'user', 'first_name', 'last_name', 'content', 'birth_date', 'status', 'note_admin')
+        extra_kwargs = {
+            'first_name': {'read_only': True},
+            'last_name': {'read_only': True},
+            'content': {'read_only': True},
+            'birth_date': {'read_only': True},
+        }
+
+
+class VerificationRequestCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VerificationRequest
+        fields = ('id', 'user', 'first_name', 'last_name', 'content', 'birth_date')
+        extra_kwargs = {
+            'birth_date': {'required': True},
+        }
+
+
+class VerificationResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VerificationRequest
+        fields = ('status', 'note_admin')
+
+    def save(self, **kwargs):
+        instance = super().save(**kwargs)
+
+        if instance.status == "APPROVED":
+            user = instance.user
+            user.is_verified = True
+            user.save(update_fields=['is_verified'])
+
 
 class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
