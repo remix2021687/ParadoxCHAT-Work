@@ -80,7 +80,7 @@ class Notification(models.Model):
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):
-        return f'Notification by {self.type} | created at {self.created_at}'
+        return f'Notification by {self.type} | created at {self.created_at.strftime("%B %d, %Y")}'
 
 
 class Profile(models.Model):

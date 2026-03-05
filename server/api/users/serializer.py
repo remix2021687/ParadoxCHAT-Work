@@ -22,18 +22,6 @@ class ProfileOwnPostSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'content', 'post_likes_count', 'created_at')
 
 
-class VerificationRequestSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = VerificationRequest
-        fields = ('id', 'user', 'first_name', 'last_name', 'content', 'birth_date', 'status', 'note_admin')
-        extra_kwargs = {
-            'first_name': {'read_only': True},
-            'last_name': {'read_only': True},
-            'content': {'read_only': True},
-            'birth_date': {'read_only': True},
-        }
-
-
 class VerificationRequestCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = VerificationRequest
