@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from posts.models import Post
-from users.models import CustomUser, Profile, Connect, VerificationRequest
+from users.models import CustomUser, Profile, Connect, VerificationRequest, Notification
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -53,15 +53,31 @@ class VerificationResponseSerializer(serializers.ModelSerializer):
 
         if instance.status == "APPROVED":
             user = instance.user
+
+            Notification.objects.create(
+                user=user,
+                type="System",
+                content="Your account has been verified. Have a good day !",
+            )
             user.is_verified = True
             user.save(update_fields=['is_verified'])
+
+        return instance
+
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notification
+        fields = ('id', 'type', 'content')
 
 
 class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     posts = ProfileOwnPostSerializer(read_only=True, many=True, source='user.post')
     connects = ProfileConnectSerializer(read_only=True, many=True)
+    notifications = NotificationSerializer(read_only=True, many=True, source='user.notification')
 
     class Meta:
         model = Profile
-        fields = ('user', 'avatar', 'banner', 'bio', 'followers_count', 'following_count', 'connects', 'posts')
+        fields = ('user', 'avatar', 'banner', 'bio', 'followers_count', 'following_count', 'notifications', 'connects',
+                  'posts')
