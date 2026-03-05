@@ -3,9 +3,9 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
-from users.models import Profile, Connect, VerificationRequest
-from .serializer import ProfileSerializer, ProfileConnectSerializer, VerificationRequestSerializer, \
-    VerificationResponseSerializer, VerificationRequestCreateSerializer
+from users.models import Profile, Connect, VerificationRequest, Notification
+from .serializer import ProfileSerializer, ProfileConnectSerializer, \
+    VerificationResponseSerializer, VerificationRequestCreateSerializer, NotificationSerializer
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
@@ -68,6 +68,18 @@ class ProfileViewSet(viewsets.ModelViewSet):
                 return Response("Request is Watching ! Check request later", status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False, methods=['delete'], url_path='notifications/(?P<pk>[0-9a-fA-F-]+)/delete')
+    def delete_notification(self, request, pk=None):
+        try:
+            notification = Notification.objects.get(pk=pk)
+            if notification:
+                notification.delete()
+                return Response(status=status.HTTP_204_NO_CONTENT)
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        except Notification.DoesNotExist:
+            return Response({"error": "Notification dont exist"}, status=status.HTTP_404_NOT_FOUND)
 
 
 class VerificationRequestViewSet(viewsets.ModelViewSet):

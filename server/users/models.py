@@ -67,6 +67,22 @@ class VerificationRequest(models.Model):
         return f'Request by {self.first_name} {self.last_name} | created at {self.created_at}'
 
 
+class Notification(models.Model):
+    class TypesNotification(models.TextChoices):
+        Message = "Message", _("Chat Message Notification")
+        Warning = "Warning", _("Warning Notification")
+        System = "System", _("System Notification")
+
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default='', related_name='notification')
+    type = models.CharField(_("Type"), max_length=50, choices=TypesNotification)
+    content = models.TextField(max_length=5000, blank=True)
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
+
+    def __str__(self):
+        return f'Notification by {self.type} | created at {self.created_at.strftime("%B %d, %Y")}'
+
+
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     avatar = models.ImageField(_("avatar"), null=True, blank=True, upload_to="uploads/avatars/")
