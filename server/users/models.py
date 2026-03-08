@@ -17,6 +17,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_admin = models.BooleanField(_("Admin MOD"), default=False)
     is_staff = models.BooleanField(_("Staff MOD"), default=False)
     is_moderator = models.BooleanField(_("Moderator MOD"), default=False)
+    email_verification_code = models.CharField(_("Email Verification Code"), max_length=6, blank=False, null=True,
+                                               default="")
+    is_email_verified = models.BooleanField(_("Email Verified"), default=False)
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
     bio = models.TextField(max_length=5000, blank=True)
