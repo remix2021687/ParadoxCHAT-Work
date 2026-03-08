@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from posts.models import Post
-from users.models import CustomUser, Profile, Connect, VerificationRequest, Notification
+from users.models import CustomUser, Profile, Connect, VerificationRequest, Notification, UserPunishment
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -95,3 +95,8 @@ class LoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('email', 'password')
+
+class UserPunishmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserPunishment
+        fields = ('id', 'user', 'staff', 'type', 'reason', 'created_at')

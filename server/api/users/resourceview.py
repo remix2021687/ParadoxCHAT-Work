@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from users.models import Profile, Connect, VerificationRequest, Notification, CustomUser
 from .serializer import ProfileSerializer, ProfileConnectSerializer, \
     VerificationResponseSerializer, VerificationRequestCreateSerializer, RegisterSerializer, UserSerializer, \
-    LoginSerializer
+    LoginSerializer, UserPunishmentSerializer
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
@@ -131,3 +131,16 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response({'access': str(access_token), 'refresh': str(refresh)}, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
+
+    @action(detail=True, methods=['post'], url_path='punishment')
+    def punish(self, request, pk=None):
+        suspect = CustomUser.objects.get(pk=pk)
+        serializer = UserPunishmentSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save(
+                user=suspect,
+                staff=request.user
+            )
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
