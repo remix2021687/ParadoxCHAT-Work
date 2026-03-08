@@ -37,6 +37,23 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return True
 
 
+class UserPunishment(models.Model):
+    class PunishmentType(models.TextChoices):
+        BAN = "BAN", _("BAN")
+        MUTE = "MUTE", _("MUTE")
+
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default='', related_name='suspect')
+    type = models.CharField(_("Type"), max_length=50, choices=PunishmentType, default="", blank=False)
+    time = models.DateTimeField(blank=True, null=True)
+    reason = models.TextField(max_length=1000, blank=True)
+    staff = models.ForeignKey(CustomUser, on_delete=models.SET_DEFAULT, default='', related_name="staff")
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
+
+    def __str__(self):
+        return f'{self.type} for {self.user.username} by {self.staff.username} | created at {self.created_at}'
+
+
 class Connect(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     name = models.CharField(_("Name"), max_length=50)
