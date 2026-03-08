@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import CustomUser, Profile, Connect, VerificationRequest, Notification
+from .models import CustomUser, Profile, Connect, VerificationRequest, Notification, UserPunishment
 
-admin.site.register([CustomUser, Profile, Connect, VerificationRequest, Notification])
+admin.site.register([CustomUser, Profile, Connect, VerificationRequest, Notification, UserPunishment])
 
 
 class UserAdmin(admin.ModelAdmin):
