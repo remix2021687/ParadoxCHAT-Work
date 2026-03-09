@@ -2,13 +2,14 @@ import { useState, useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { Flip } from 'gsap/Flip'
 import icon from "@assets/svg/Overlay+Border.svg"
+import { RegisterForm } from "./components/RegisterForm/RegisterForm"
 
 gsap.registerPlugin(Flip)
 
 export const AuthPage: React.FC = () => {
     const tabsData: Array<{id: string; title: string}> = [
-        {id:"singUp", title: "Sing Up"},
-        {id:"singIn", title: "Sing In"}
+        {id:"signUp", title: "Sign Up"},
+        {id:"signIn", title: "Sign In"}
     ]
     const [activeTab, setActiveTab] = useState(tabsData[0].id)
     const indecatorRef = useRef<HTMLSpanElement>(null)
@@ -77,12 +78,9 @@ export const AuthPage: React.FC = () => {
                     }
                     <span ref={indecatorRef} className="AuthPage_right_block_select_indecator"></span>
                 </section>
-                <form className="AuthPage_right_block_form">
-                    <section className="AuthPage_right_block_form_header">
-                        <h2>Welcome back</h2>
-                        <p>Join our community today and start streaming.</p>
-                    </section>
-                </form>
+                {
+                    activeTab === "signUp" ? <RegisterForm /> : <div>Sign In Form</div>
+                }
             </section>
         </section>
     )

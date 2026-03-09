@@ -307,6 +307,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -358,4 +362,88 @@ body {
   height: 100%;
   background-color: #7F13EC;
   border-radius: 12px;
+}
+
+.RegisterForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  margin-top: 50px;
+  width: 60%;
+}
+.RegisterForm button {
+  width: 100%;
+  height: 53px;
+  background-color: #7F13EC;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.RegisterForm .RegisterForm_title h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+.RegisterForm .RegisterForm_title p {
+  font-size: 16px;
+  color: #94A3B8;
+}
+.RegisterForm .RegisterForm_inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 25px;
+}
+.RegisterForm .RegisterForm_inputs label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+.RegisterForm .RegisterForm_inputs label span {
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
+  padding-left: 30px;
+}
+.RegisterForm .RegisterForm_inputs label h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #E2E8F0;
+}
+.RegisterForm .RegisterForm_inputs label input {
+  width: 100%;
+  height: 53px;
+  background: none;
+  border: 1px solid rgba(127, 19, 236, 0.2);
+  border-radius: 8px;
+  font-size: 16px;
+  color: #94A3B8;
+  padding: 0 49px;
+  outline: none;
+}
+.RegisterForm .RegisterForm_inputs label .icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #94A3B8;
 }

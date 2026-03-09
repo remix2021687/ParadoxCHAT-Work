@@ -34,6 +34,7 @@
 
     .AuthPage_right_block {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 50%;
@@ -83,3 +84,5 @@
         }
     }
 }
+
+@import './components/RegisterForm/RegisterForm'
