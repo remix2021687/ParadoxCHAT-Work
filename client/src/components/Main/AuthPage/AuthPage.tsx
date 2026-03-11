@@ -3,6 +3,7 @@ import { gsap } from "gsap"
 import { Flip } from 'gsap/Flip'
 import icon from "@assets/svg/Overlay+Border.svg"
 import { RegisterForm } from "./components/RegisterForm/RegisterForm"
+import { LoginForm } from "./components/LoginForm/LoginForm"
 
 gsap.registerPlugin(Flip)
 
@@ -79,7 +80,7 @@ export const AuthPage: React.FC = () => {
                     <span ref={indecatorRef} className="AuthPage_right_block_select_indecator"></span>
                 </section>
                 {
-                    activeTab === "signUp" ? <RegisterForm /> : <div>Sign In Form</div>
+                    activeTab === "signUp" ? <RegisterForm /> : <LoginForm />
                 }
             </section>
         </section>
