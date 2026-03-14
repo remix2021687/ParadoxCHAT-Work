@@ -77,7 +77,9 @@ export const AuthPage: React.FC = () => {
 							data-id={tab.id}
 							className={activeTab === tab.id ? "active" : ""}
 							onClick={() => handleTabClick(tab.id)}>
-							<span>{tab.title}</span>
+							<span className="AuthPage_right_block_select_text">
+								{tab.title}
+							</span>
 						</button>
 					))}
 					<span

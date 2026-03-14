@@ -64,7 +64,7 @@
 				font-weight: bold;
 				width: 100%;
 
-				& > span {
+				.AuthPage_right_block_select_text {
 					position: relative;
 					z-index: 2;
 					color: #94a3b8;
@@ -72,7 +72,7 @@
 				}
 
 				&.active {
-					span {
+					.AuthPage_right_block_select_text {
 						color: white;
 					}
 				}
@@ -80,6 +80,8 @@
 
 			.AuthPage_right_block_select_indecator {
 				position: absolute;
+				top: 0;
+				left: 0;
 				width: 50%;
 				height: 100%;
 				background-color: #7f13ec;
@@ -144,4 +146,3 @@
 
 @import "./components/RegisterForm/RegisterForm";
 @import "./components/LoginForm/LoginForm";
-@import "./Adaptiv";
