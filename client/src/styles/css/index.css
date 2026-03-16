@@ -323,7 +323,6 @@ body {
   background-color: #191022;
 }
 .AuthPage .AuthPage_right_block .AuthPage_right_block_select {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -331,48 +330,64 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 60%;
   height: 60px;
   background-color: rgba(127, 19, 236, 0.2);
   border-radius: 12px;
 }
 .AuthPage .AuthPage_right_block .AuthPage_right_block_select button {
+  position: relative;
   background: none;
   border: none;
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
   width: 100%;
+  height: 100%;
 }
 .AuthPage .AuthPage_right_block .AuthPage_right_block_select button .AuthPage_right_block_select_text {
   position: relative;
   z-index: 2;
   color: #94a3b8;
-  -webkit-transition: 0.5s ease;
-  transition: 0.5s ease;
 }
-.AuthPage .AuthPage_right_block .AuthPage_right_block_select button.active .AuthPage_right_block_select_text {
-  color: white;
-}
-.AuthPage .AuthPage_right_block .AuthPage_right_block_select .AuthPage_right_block_select_indecator {
+.AuthPage .AuthPage_right_block .AuthPage_right_block_select button .AuthPage_right_block_select_indecator {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 100%;
   height: 100%;
   background-color: #7f13ec;
   border-radius: 12px;
 }
-.AuthPage .AuthPage_right_block span {
+.AuthPage .AuthPage_right_block .AuthPage_right_block_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+.AuthPage .AuthPage_right_block .AuthPage_right_block_content span {
   font-size: 14px;
   font-weight: bold;
   color: red;
   padding-left: 30px;
 }
-.AuthPage .AuthPage_right_block button {
+.AuthPage .AuthPage_right_block .AuthPage_right_block_content button {
   width: 100%;
   height: 53px;
   background-color: #7f13ec;
@@ -383,7 +398,7 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-.AuthPage .AuthPage_right_block label {
+.AuthPage .AuthPage_right_block .AuthPage_right_block_content label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -397,12 +412,12 @@ body {
   gap: 8px;
   position: relative;
 }
-.AuthPage .AuthPage_right_block label h3 {
+.AuthPage .AuthPage_right_block .AuthPage_right_block_content label h3 {
   font-size: 14px;
   font-weight: bold;
   color: #e2e8f0;
 }
-.AuthPage .AuthPage_right_block label input {
+.AuthPage .AuthPage_right_block .AuthPage_right_block_content label input {
   width: 100%;
   height: 53px;
   background: none;
@@ -413,7 +428,7 @@ body {
   padding: 0 49px;
   outline: none;
 }
-.AuthPage .AuthPage_right_block label .icon {
+.AuthPage .AuthPage_right_block .AuthPage_right_block_content label .icon {
   position: absolute;
   left: 16px;
   top: 65%;
@@ -493,7 +508,7 @@ body {
 }
 .LoginForm .LoginForm_title p {
   font-size: 16px;
-  color: #94A3B8;
+  color: #94a3b8;
 }
 
 .VerifyPage {

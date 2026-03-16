@@ -33,39 +33,17 @@ export const LoginForm: React.FC = () => {
 				closeOnClick: true,
 			});
 		} catch (res: any) {
-			const errMSG = res.data.errors.email;
-			console.log(errMSG);
-			// toast.error(errMSG, {
-			// 	position: "top-center",
-			// 	autoClose: 3000,
-			// 	hideProgressBar: true,
-			// 	closeOnClick: true,
-			// });
+			const errMSG = res.data.message[0];
+
+			if (errMSG) {
+				toast.error(errMSG, {
+					position: "top-center",
+					autoClose: 3000,
+					hideProgressBar: true,
+					closeOnClick: true,
+				});
+			}
 		}
-		// 	const result = await Login(data);
-		// 	if (isSuccess) {
-		// 		if (result.data) {
-		// 			localStorage.setItem("token", result.data?.access ?? "");
-		// 			localStorage.setItem("refrash", result.data?.refresh ?? "");
-		// 		}
-
-		// 		navigate("/");
-
-		// 		toast.success("Login Success. Welcome to Paradox !", {
-		// 			position: "top-center",
-		// 			autoClose: 3000,
-		// 			hideProgressBar: true,
-		// 			closeOnClick: true,
-		// 		});
-		// 	} else {
-		// 		console.log(result);
-		// 		toast.error(result.error?.data?.message, {
-		// 			position: "top-center",
-		// 			autoClose: 3000,
-		// 			hideProgressBar: true,
-		// 			closeOnClick: true,
-		// 		});
-		// 	}
 	};
 
 	return (
