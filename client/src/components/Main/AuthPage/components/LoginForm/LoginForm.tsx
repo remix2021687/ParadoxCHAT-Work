@@ -12,7 +12,7 @@ export const LoginForm: React.FC = () => {
 		formState: { errors },
 	} = useForm<LoginRequest>();
 
-	const [Login, { isError }] = useLoginUserMutation();
+	const [Login] = useLoginUserMutation();
 
 	const navigate = useNavigate();
 
