@@ -379,7 +379,9 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  justify-self: flex-end !important;
   width: 100%;
+  height: 130vh;
 }
 .AuthPage .AuthPage_right_block .AuthPage_right_block_content span {
   font-size: 14px;
