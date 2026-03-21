@@ -19,9 +19,9 @@ jobs:
       postgres:
         image: postgres:16
         env:
-          POSTGRES_DB: test_db
-          POSTGRES_USER: test_user
-          POSTGRES_PASSWORD: test_password
+          POSTGRES_DB: TESTDB
+          POSTGRES_USER: ROOT
+          POSTGRES_PASSWORD: 123456789
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -44,10 +44,11 @@ jobs:
     - name: Run Tests
       env:
         SECRET_KEY: g^iuexa=!fva713-*(sk6^x&hi@d=lb!uiu*zc5xt!e#t_&qvo
-        DB_NAME: test_db
-        DB_USER: test_user
-        DB_PASSWORD: test_password
+        DB_NAME: TESTDB
+        DB_USER: ROOT
+        DB_PASSWORD: 123456789
         DB_HOST: localhost
       run: |
         cd server/
+        python manage.py migrate
         python manage.py test
