@@ -44,6 +44,7 @@ jobs:
     - name: Run Tests
       env:
         SECRET_KEY: g^iuexa=!fva713-*(sk6^x&hi@d=lb!uiu*zc5xt!e#t_&qvo
+        PROD: True
         DB_NAME: TESTDB
         DB_USER: ROOT
         DB_PASSWORD: 123456789
