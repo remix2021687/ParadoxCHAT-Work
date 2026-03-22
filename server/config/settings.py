@@ -149,6 +149,7 @@ REST_FRAMEWORK = {
         'verify_email': '5/minute',
         'ip': '30/minute',
     },
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 
 }
 load_dotenv()
@@ -186,7 +187,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'uploads'
 ]
 
-if os.getenv("PROD") == True:
+if os.getenv("PROD") == "True":
     from .settings_prod import *
 else:
     from .settings_local import *

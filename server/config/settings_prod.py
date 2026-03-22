@@ -2,7 +2,9 @@ import os
 
 DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['localhost'])
+ALLOWED_HOSTS = [
+    os.environ.get('ALLOWED_HOSTS')
+]
 
 DATABASES = {
     'default': {
@@ -15,4 +17,6 @@ DATABASES = {
     }
 }
 
-CORS_ALLOWED_ORIGINS = f"{os.environ.get('CORS_ALLOWED_ORIGINS', ['http://localhost:5173'])}"
+CORS_ALLOWED_ORIGINS = [
+    f"{os.environ.get('CORS_ALLOWED_ORIGINS')}"
+]
