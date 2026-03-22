@@ -10,7 +10,7 @@ charset-normalizer==3.4.4
 constantly==23.10.4
 cryptography==46.0.3
 daphne==4.2.1
-Django==6.0
+Django==6.0.3
 django-allauth==65.14.0
 django-cors-headers==4.9.0
 djangorestframework==3.16.1
