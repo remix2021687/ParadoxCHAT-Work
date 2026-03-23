@@ -1,5 +1,8 @@
 @media screen and (max-width: 792px) {
 	.TopNavMenu {
+		.TopNavMenu_open_mobile_menu_button {
+			display: flex !important;
+		}
 		.TopNavMenu_left_block {
 			width: 100%;
 

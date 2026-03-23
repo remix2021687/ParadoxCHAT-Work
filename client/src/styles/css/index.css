@@ -72,6 +72,9 @@ body {
   padding: 0 40px;
   border-bottom: 1px solid #4d3267;
 }
+.TopNavMenu .TopNavMenu_open_mobile_menu_button {
+  display: none !important;
+}
 .TopNavMenu .TopNavMenu_left_block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -434,6 +437,11 @@ body {
 }
 
 @media screen and (max-width: 792px) {
+  .TopNavMenu .TopNavMenu_open_mobile_menu_button {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
   .TopNavMenu .TopNavMenu_left_block {
     width: 100%;
   }
@@ -452,10 +460,16 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
+  height: 100vh;
+  padding: 20px 40px;
+  background-color: #191022;
 }
 
-.HomePageUserList {
+.NavigationMenu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -463,154 +477,14 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 19.4%;
-  height: 100dvh;
-  border-right: 1px solid #e0e0e0;
-  padding: 30px;
-  gap: 28px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.HomePageUserList .HomePageUserList_header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-}
-.HomePageUserList .HomePageUserList_header button {
-  width: 40px;
-  height: 40px;
-  background-color: #8D46F6;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-}
-.HomePageUserList .HomePageUserList_category {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-}
-.HomePageUserList .HomePageUserList_category button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  color: #7C8092;
-}
-.HomePageUserList .HomePageUserList_conetent {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 20px;
-}
-.HomePageUserList .HomePageUserList_conetent .HomePageUserList_conetent_search {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  gap: 24px;
+  width: 20%;
+  height: 40%;
+  border-radius: 12px;
+  background-color: rgba(38, 25, 51, 0.3);
   padding: 16px;
-  gap: 8px;
-  width: 100%;
-  height: 48px;
-  border: 2px solid #E0E0E0;
-  border-radius: 8px;
 }
-.HomePageUserList .HomePageUserList_conetent .HomePageUserList_conetent_search #search_input {
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  font-weight: 400;
-  color: #7C8092;
-  background: none;
-}
-.HomePageUserList .HomePageUserList_conetent_list_user {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 12px;
-}
-
-.UserList {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  gap: 12px;
-  width: 100%;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-  padding: 8px;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
-  cursor: pointer;
-}
-.UserList .UserList_avatar {
-  position: relative;
-}
-.UserList .UserList_avatar span {
-  position: absolute;
-  top: 35px;
-  left: 35px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #4CAF50;
-  border: 2px solid #FFFFFF;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
-}
-.UserList .UserList_content {
+.NavigationMenu .NavigationMenu_header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -620,28 +494,67 @@ body {
           flex-direction: column;
   gap: 8px;
 }
-.UserList .UserList_content .UserList_content_header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-}
-.UserList:hover {
-  background-color: #30323E;
+.NavigationMenu .NavigationMenu_header h2 {
+  font-size: 18px;
+  font-weight: bold;
   color: white;
 }
-.UserList:hover .UserList_avatar span {
-  border-color: #30323E;
+.NavigationMenu .NavigationMenu_header p {
+  font-size: 16px;
+  color: #ad92c9;
+}
+.NavigationMenu .NavigationMenu_buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+}
+.NavigationMenu .NavigationMenu_buttons button {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  background: none;
+  padding: 0 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: none;
+  text-align: start;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.NavigationMenu .NavigationMenu_buttons button section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+.NavigationMenu .NavigationMenu_buttons button .NavigationMenu_buttons_indecator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #7f13ec;
+  width: 100%;
+  height: 100%;
 }
 
 .AuthPage {

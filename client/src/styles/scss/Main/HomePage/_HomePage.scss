@@ -1,7 +1,11 @@
 .HomePage {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	height: 100vh;
+	padding: 20px 40px;
+	background-color: #191022;
 }
 
-@import "./components/HomePageUserList/HomePageUserList";
+@import "./components/NavigationMenu/NavigationMenu";
