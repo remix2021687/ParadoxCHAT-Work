@@ -1,3 +1,6 @@
+import { ImageIcon, SmileyIcon } from "@phosphor-icons/react";
+import avatar from "@assets/img/avatar.png";
+
 export const PostMenu: React.FC = () => {
 	return (
 		<section className="PostMenu">
@@ -7,8 +10,32 @@ export const PostMenu: React.FC = () => {
 			</section>
 			<form className="PostMenu_form">
 				<section className="PostMenu_form_content">
-					<textarea placeholder="Share an update, link or video..."></textarea>
-					<button>Post</button>
+					<section className="PostMenu_form_content_upper">
+						<img
+							src={avatar}
+							alt="avatar"
+						/>
+						<textarea placeholder="Share an update, link or video..."></textarea>
+					</section>
+					<section className="PostMenu_form_content_lower">
+						<section className="PostMenu_form_content_lower_buttons">
+							<button>
+								<ImageIcon
+									weight="bold"
+									color="white"
+									size={18}
+								/>
+							</button>
+							<button>
+								<SmileyIcon
+									weight="bold"
+									color="white"
+									size={18}
+								/>
+							</button>
+						</section>
+						<button className="PostMenu_submit_button">Post</button>
+					</section>
 				</section>
 			</form>
 		</section>
