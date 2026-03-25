@@ -477,7 +477,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 100%;
+  width: 70%;
 }
 
 .NavigationMenu {
@@ -608,7 +608,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 80%;
+  width: 100%;
   padding: 25px 0;
   background-color: #261933;
   border-radius: 12px;
@@ -729,6 +729,70 @@ body {
 }
 .PostMenu .PostMenu_form .PostMenu_form_content .PostMenu_form_content_lower .PostMenu_form_content_lower_buttons button:hover {
   background-color: #69458c;
+}
+
+.RecomendationComponents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 24px;
+  width: 30%;
+}
+
+.RecomendChannels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 16px;
+  width: 100%;
+  border: 1px solid #4d3267;
+  border-radius: 12px;
+  background-color: #261933;
+  padding: 20px;
+}
+.RecomendChannels .RecomendChannels_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.RecomendChannels .RecomendChannels_header h2 {
+  font-weight: bold;
+  color: white;
+}
+.RecomendChannels .RecomendChannels_header a {
+  color: #7f13ec;
+}
+.RecomendChannels .RecomendChannels_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 16px;
 }
 
 .AuthPage {
@@ -1124,6 +1188,62 @@ body {
   border-radius: 16px;
   font-size: 24px;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.UserListBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.UserListBox .UserListBox_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 16px;
+  width: 100%;
+}
+.UserListBox .UserListBox_info .UserListBox_info_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.UserListBox .UserListBox_info .UserListBox_info_header h4 {
+  font-weight: bold;
+  color: white;
+}
+.UserListBox .UserListBox_info .UserListBox_info_header h5 {
+  color: #ad92c9;
+}
+.UserListBox button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 6px 12px;
+  background-color: rgba(127, 19, 236, 0.3);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
   cursor: pointer;
 }
 

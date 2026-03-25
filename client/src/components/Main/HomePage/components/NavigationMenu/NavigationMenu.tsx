@@ -89,17 +89,6 @@ export const NavigationMenu: React.FC = () => {
 						)}
 					</motion.button>
 				))}
-				{/* <button>
-					<section>
-						<HouseIcon
-							weight="bold"
-							color="white"
-							className="NavigationMenu_buttons_icon"
-						/>
-						<span>Test</span>
-					</section>
-					<span className="NavigationMenu_buttons_indecator"></span>
-				</button> */}
 			</section>
 		</section>
 	);

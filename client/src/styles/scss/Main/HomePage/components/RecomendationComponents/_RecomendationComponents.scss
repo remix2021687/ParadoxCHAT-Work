@@ -1,0 +1,8 @@
+.RecomendationComponents {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	width: 30%;
+}
+
+@import "./components/RecomendChannels/RecomendChannels";

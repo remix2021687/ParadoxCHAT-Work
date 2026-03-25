@@ -11,9 +11,10 @@
 	.HomePage_content {
 		display: flex;
 		flex-direction: column;
-		width: 100%;
+		width: 70%;
 	}
 }
 
 @import "./components/NavigationMenu/NavigationMenu";
 @import "./components/PostMenu/PostMenu";
+@import "./components/RecomendationComponents/RecomendationComponents";
