@@ -13,6 +13,13 @@
 		flex-direction: column;
 		width: 70%;
 	}
+
+	.HomePage_left {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		width: 30%;
+	}
 }
 
 @import "./components/NavigationMenu/NavigationMenu";
