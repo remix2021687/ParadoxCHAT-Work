@@ -465,7 +465,6 @@ body {
           justify-content: space-between;
   gap: 32px;
   width: 100%;
-  height: 100vh;
   padding: 20px 40px;
   background-color: #191022;
 }
@@ -477,6 +476,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  gap: 24px;
   width: 70%;
 }
 .HomePage .HomePage_left {
@@ -499,6 +499,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: sticky;
+  top: 20px;
   gap: 24px;
   width: 25%;
   height: 40%;
@@ -750,6 +752,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: sticky;
+  top: 20px;
   gap: 24px;
   width: 100%;
 }
@@ -1307,6 +1311,135 @@ body {
 .TrendTopic h4 {
   font-size: 14px;
   color: #ad92c9;
+}
+
+.PostBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.PostBox > img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+}
+.PostBox .PostBox_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 11px;
+  width: 100%;
+  padding: 20px;
+  background-color: #261933;
+}
+.PostBox .PostBox_content .PostBox_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 12px;
+}
+.PostBox .PostBox_content .PostBox_header h2 {
+  font-weight: bold;
+  color: white;
+}
+.PostBox .PostBox_content .PostBox_header h4 {
+  font-size: 12px;
+  color: #ad92c9;
+}
+.PostBox .PostBox_content > h1 {
+  font-weight: bold;
+  color: white;
+}
+.PostBox .PostBox_content > p {
+  color: #ad92c9;
+  font-size: 16px;
+  max-width: 100%;
+  word-break: break-all;
+  line-height: 26px;
+}
+.PostBox .PostBox_content .PostBox_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.PostBox .PostBox_content .PostBox_footer .PostBox_footer_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 24px;
+}
+.PostBox .PostBox_content .PostBox_footer .PostBox_footer_left section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5px;
+}
+.PostBox .PostBox_content .PostBox_footer .PostBox_footer_left section h4 {
+  font-weight: 400;
+  color: #ad92c9;
+}
+.PostBox .PostBox_content .PostBox_footer a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 15%;
+  height: 50px;
+  border: none;
+  background-color: #7f13ec;
+  border-radius: 12px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1200px) {
