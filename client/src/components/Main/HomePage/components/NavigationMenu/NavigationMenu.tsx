@@ -2,11 +2,7 @@ import type { MouseEventHandler } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion } from "motion/react";
 import { HouseIcon, TrendUpIcon, UserIcon } from "@phosphor-icons/react";
-import {
-	Feed,
-	Trending,
-	Subscriptions,
-} from "@store/Slices/NavigationMenuSlice";
+import { Category } from "@store/Slices/NavigationMenuSlice";
 import type { RootState } from "@/store/store";
 
 type dataButtonsType = {
@@ -32,7 +28,7 @@ export const NavigationMenu: React.FC = () => {
 					color="white"
 				/>
 			),
-			onclick: () => dispatch(Feed()),
+			onclick: () => dispatch(Category("Feed")),
 		},
 		{
 			name: "Trending",
@@ -43,7 +39,7 @@ export const NavigationMenu: React.FC = () => {
 					color="white"
 				/>
 			),
-			onclick: () => dispatch(Trending()),
+			onclick: () => dispatch(Category("Trending")),
 		},
 		{
 			name: "Subscriptions",
@@ -54,7 +50,7 @@ export const NavigationMenu: React.FC = () => {
 					color="white"
 				/>
 			),
-			onclick: () => dispatch(Subscriptions()),
+			onclick: () => dispatch(Category("Subscriptions")),
 		},
 	];
 

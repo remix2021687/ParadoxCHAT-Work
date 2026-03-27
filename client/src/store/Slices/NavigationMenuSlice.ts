@@ -12,20 +12,12 @@ export const NavigationMenuSlice = createSlice({
 	name: "Navigation Menu",
 	initialState,
 	reducers: {
-		Feed: (state) => {
-			state.category = "Feed";
-		},
-
-		Trending: (state) => {
-			state.category = "Trending";
-		},
-
-		Subscriptions: (state) => {
-			state.category = "Subscriptions";
+		Category: (state, action) => {
+			state.category = action.payload;
 		},
 	},
 });
 
-export const { Feed, Trending, Subscriptions } = NavigationMenuSlice.actions;
+export const { Category } = NavigationMenuSlice.actions;
 
 export default NavigationMenuSlice.reducer;
