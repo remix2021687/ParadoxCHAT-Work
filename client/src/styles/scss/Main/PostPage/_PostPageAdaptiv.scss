@@ -1,0 +1,27 @@
+@media screen and (max-width: 792px) {
+	.PostPage {
+		justify-content: center;
+		position: relative;
+
+		a {
+			align-items: center;
+			justify-content: center;
+			width: 10%;
+			object-fit: cover;
+			position: sticky;
+			top: 25px;
+
+			span {
+				display: none;
+			}
+		}
+
+		.PostPage_content {
+			width: 90%;
+		}
+
+		.RecommendationPosts {
+			display: none;
+		}
+	}
+}

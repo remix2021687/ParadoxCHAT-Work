@@ -1,7 +1,8 @@
 .PostPage {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: space-between;
+	align-items: flex-start;
 	gap: 24px;
 	background-color: #120b1a;
 	width: 100%;
@@ -25,8 +26,10 @@
 	.PostPage_content {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 		gap: 24px;
-		width: 40%;
+		width: 50%;
 
 		.PostPage_content_videoPlayer {
 			width: 100%;
@@ -36,3 +39,4 @@
 
 @import "./components/PostInfo/PostInfo";
 @import "./components/Comments/Comments";
+@import "./components/RecommendationPosts/RecommendationPosts";

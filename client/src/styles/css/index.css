@@ -880,9 +880,12 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   gap: 24px;
   background-color: #120b1a;
   width: 100%;
@@ -917,8 +920,14 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 24px;
-  width: 40%;
+  width: 50%;
 }
 .PostPage .PostPage_content .PostPage_content_videoPlayer {
   width: 100%;
@@ -1166,6 +1175,35 @@ body {
   cursor: pointer;
 }
 .Comments .Comments_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 32px;
+}
+
+.RecommendationPosts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  background-color: #1d1428;
+  border: 1px solid #3d2a52;
+  border-radius: 16px;
+  width: 25%;
+  gap: 32px;
+}
+.RecommendationPosts h2 {
+  color: white;
+}
+.RecommendationPosts .RecommendationPosts_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1901,6 +1939,46 @@ body {
   cursor: pointer;
 }
 
+.MinePostBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+  gap: 12px;
+}
+.MinePostBox img {
+  width: 30%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 16px;
+}
+.MinePostBox .MinePostBox_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.MinePostBox .MinePostBox_info h1 {
+  color: white;
+}
+.MinePostBox .MinePostBox_info span {
+  font-size: 10px;
+  color: #ad92c9;
+}
+
 @media screen and (max-width: 1200px) {
   .RegisterForm {
     width: 85%;
@@ -1947,5 +2025,35 @@ body {
 @media screen and (max-width: 792px) {
   .VerifyPage .VerifyPage_form {
     width: 95%;
+  }
+}
+@media screen and (max-width: 792px) {
+  .PostPage {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+  }
+  .PostPage a {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 10%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    position: sticky;
+    top: 25px;
+  }
+  .PostPage a span {
+    display: none;
+  }
+  .PostPage .PostPage_content {
+    width: 90%;
+  }
+  .PostPage .RecommendationPosts {
+    display: none;
   }
 }
