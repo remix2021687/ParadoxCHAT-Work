@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
+import { BaseQueryWithRefreshToken } from "./AsyncFunction/BaseQueryRefreshToken";
 
 // import type { RootState } from "@store/store";
 
@@ -28,9 +29,7 @@ export type VerifyRequest = {
 
 export const api = createApi({
 	reducerPath: "API",
-	baseQuery: fetchBaseQuery({
-		baseUrl: import.meta.env.VITE_URL_API,
-	}),
+	baseQuery: BaseQueryWithRefreshToken,
 	tagTypes: ["User", "Post"] as const,
 
 	endpoints: (build) => ({
