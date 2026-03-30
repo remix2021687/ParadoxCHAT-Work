@@ -1,12 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { api } from "./Api/ApiSlice";
-import NotifyMenuReducer from "./Slices/NotifyMenuSlice";
+import MobileMenuSlice from "./Slices/MobileMenuSlice";
+import NavigationMenuSlice from "./Slices/NavigationMenuSlice";
 import EmailVerifySlice from "./Api/EmailVerifySlice";
+import AuthSlice from "./Api/AuthSlice";
 
 export const store = configureStore({
 	reducer: {
-		notifymenu: NotifyMenuReducer,
+		mobilemenu: MobileMenuSlice,
+		navigationmenu: NavigationMenuSlice,
 		emailverify: EmailVerifySlice,
+		auth: AuthSlice,
 		[api.reducerPath]: api.reducer,
 	},
 	middleware: (getDefultMiddleware) =>

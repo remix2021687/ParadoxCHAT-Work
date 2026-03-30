@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addEmail } from "@store/Api/EmailVerifySlice";
 import { useLoginUserMutation } from "@store/Api/ApiSlice";
 import type { LoginRequest } from "@store/Api/ApiSlice";
+import { AuthLogin } from "@store/Api/AuthSlice";
 import { EnvelopeIcon, PasswordIcon } from "@phosphor-icons/react";
 import { toast } from "react-toastify";
 
@@ -22,10 +23,12 @@ export const LoginForm: React.FC = () => {
 	const onSubmit = async (data: LoginRequest) => {
 		try {
 			const result = await Login(data).unwrap();
-			if (result) {
-				localStorage.setItem("token", result.access ?? "");
-				localStorage.setItem("refrash", result.refresh ?? "");
-			}
+			dispatch(
+				AuthLogin({
+					access: result.access,
+					refresh: result.refresh,
+				}),
+			);
 
 			navigate("/");
 
