@@ -523,7 +523,7 @@ body {
   gap: 180px;
 }
 .Page404 .Page404_header > h1 {
-  text-align: start;
+  text-align: center;
   font-size: 224px;
   color: white;
   letter-spacing: -30px;
@@ -605,6 +605,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 48px;
   width: 100%;
   margin-top: 50px;
 }
@@ -644,10 +645,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 50%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 18px;
+  width: 100%;
 }
 
 .Page404InfoBox {
@@ -664,8 +666,39 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 18px;
   width: 100%;
   height: 162px;
+  padding: 20px;
+  background-color: #1e132b;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(77, 50, 103, 0.1);
+}
+.Page404InfoBox .Page404InfoBox_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 8px;
+}
+.Page404InfoBox .Page404InfoBox_content h2 {
+  font-size: 16px;
+  color: white;
+}
+.Page404InfoBox .Page404InfoBox_content p {
+  font-size: 14px;
+  color: #ad92c9;
+  max-width: 80%;
 }
 
 .HomePage {

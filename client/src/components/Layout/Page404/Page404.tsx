@@ -15,17 +15,17 @@ import logo from "@assets/svg/logo.svg";
 export const Page404: React.FC = () => {
 	const InfoBoxData: Array<Page404InfoBoxProps> = [
 		{
-			icon: <MagnifyingGlassIcon size={18} color='#FFF' />,
+			icon: <MagnifyingGlassIcon size={18} color='#AD92C9' />,
 			title: "Search Content",
 			description: "Find exactly what you're looking for in our library.",
 		},
 		{
-			icon: <TrendUpIcon size={18} color='#FFF' />,
+			icon: <TrendUpIcon size={18} color='#AD92C9' />,
 			title: "View Trending",
 			description: "See what others are watching right now.",
 		},
 		{
-			icon: <HeadsetIcon size={18} color='#FFF' />,
+			icon: <HeadsetIcon size={18} color='#AD92C9' />,
 			title: "Report Issue",
 			description: "Think this is a mistake? Let our tech team know.",
 		},
