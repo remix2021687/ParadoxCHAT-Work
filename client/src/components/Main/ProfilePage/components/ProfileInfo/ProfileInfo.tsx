@@ -1,64 +1,27 @@
-import type { MouseEventHandler } from "react";
-import {
-	VideoIcon,
-	ChatIcon,
-	ImageIcon,
-	WarningCircleIcon,
-} from "@phosphor-icons/react";
+// import { useDispatch, useSelector } from "react-redux";
 import { ProfileInfoHeader } from "./components/ProfileInfoHeader/ProfileInfoHeader";
+import { ProfileInfoNav } from "./components/ProfileInfoNav/ProfileInfoNav";
 
 interface ProfileInfoProps {
 	ProfilePonorama: React.ComponentType;
 }
 
-type NavButtonsType = {
-	icon: React.ReactNode;
-	name: string;
-	onclick: MouseEventHandler<HTMLButtonElement>;
-};
-
 export const ProfileInfo: React.FC<ProfileInfoProps> = ({
 	ProfilePonorama,
 }) => {
-	const ButtonNavData: Array<NavButtonsType> = [
-		{
-			icon: <VideoIcon />,
-			name: "Videos",
-			onclick: () => {
-				console.log("Test");
-			},
-		},
-		{
-			icon: <ChatIcon />,
-			name: "Posts",
-			onclick: () => {
-				console.log("Test");
-			},
-		},
-		{
-			icon: <ImageIcon />,
-			name: "Media",
-			onclick: () => {
-				console.log("Test");
-			},
-		},
-		{
-			icon: <WarningCircleIcon />,
-			name: "About",
-			onclick: () => {
-				console.log("Test");
-			},
-		},
-	];
+	// const ProfileNavMenuState = useSelector(
+	// 	(state: RootState) => state.profilenavmenu.category,
+	// );
+
 	return (
 		<section className='ProfileInfo'>
 			<ProfilePonorama />
 			<ProfileInfoHeader />
 			<section className='ProfileInfo_content'>
-				<section className='ProfileInfo_content_left'>
-					<section className='ProfileInfo_content_left_nav'></section>
+				<section className='ProfileInfo_content_left'></section>
+				<section className='ProfileInfo_content_right'>
+					<ProfileInfoNav />
 				</section>
-				<section className='ProfileInfo_content_right'></section>
 			</section>
 		</section>
 	);
