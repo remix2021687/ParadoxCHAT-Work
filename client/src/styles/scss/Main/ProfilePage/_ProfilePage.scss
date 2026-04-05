@@ -10,6 +10,15 @@
 		flex-direction: column;
 		width: 100%;
 	}
+
+	.ProfilePage_content {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 20px;
+		width: 80%;
+		padding: 0 80px;
+	}
 }
 
 @import "./components/ProfilePonorama/ProfilePonorama";

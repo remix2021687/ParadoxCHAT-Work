@@ -1737,6 +1737,20 @@ body {
           flex-direction: column;
   width: 100%;
 }
+.ProfilePage .ProfilePage_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
+  width: 80%;
+  padding: 0 80px;
+}
 
 .ProfilePonorama {
   display: -webkit-box;
@@ -1802,64 +1816,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   width: 80%;
 }
-.ProfileInfo .ProfileInfo_content_right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+.ProfileInfo .ProfileInfo_content .ProfileInfo_content_right {
   width: 60%;
-}
-.ProfileInfo .ProfileInfo_content_right .Profile_content_right_nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  gap: 32px;
-  height: 53px;
-  width: 100%;
-  border-bottom: 1px solid #4d3267;
-}
-.ProfileInfo .ProfileInfo_content_right .Profile_content_right_nav button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 5px;
-  position: relative;
-  padding: 0 13px;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-.ProfileInfo .ProfileInfo_content_right .Profile_content_right_nav button .icon {
-  -webkit-transition: 0.5s ease;
-  transition: 0.5s ease;
-}
-.ProfileInfo .ProfileInfo_content_right .Profile_content_right_nav button span {
-  width: 75%;
-  height: 3px;
-  background-color: #7f13ec;
-  position: absolute;
-  top: 96%;
 }
 
 .ProfileInfo_header {
@@ -2006,6 +1969,54 @@ body {
   font-size: 18px;
   font-weight: bold;
   color: white;
+}
+
+.ProfileInfoNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 32px;
+  height: 53px;
+  width: 100%;
+  border-bottom: 1px solid #4d3267;
+}
+.ProfileInfoNav button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  position: relative;
+  padding: 0 13px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.ProfileInfoNav button .icon {
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+.ProfileInfoNav button span {
+  width: 75%;
+  height: 3px;
+  background-color: #7f13ec;
+  position: absolute;
+  top: 96%;
 }
 
 .VerifyPage {

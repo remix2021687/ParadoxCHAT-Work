@@ -27,8 +27,8 @@ export const ProfileInfoNav: React.FC = () => {
 				<VideoIcon
 					size={25}
 					color={ProfileNavMenuState == "Videos" ? "#FFF" : "#ad92c9"}
-					weight='bold'
-					className='icon'
+					weight="bold"
+					className="icon"
 				/>
 			),
 			name: "Videos",
@@ -41,8 +41,8 @@ export const ProfileInfoNav: React.FC = () => {
 				<ChatIcon
 					size={25}
 					color={ProfileNavMenuState == "Posts" ? "#FFF" : "#ad92c9"}
-					weight='bold'
-					className='icon'
+					weight="bold"
+					className="icon"
 				/>
 			),
 			name: "Posts",
@@ -55,8 +55,8 @@ export const ProfileInfoNav: React.FC = () => {
 				<ImageIcon
 					size={25}
 					color={ProfileNavMenuState == "Media" ? "#FFF" : "#ad92c9"}
-					weight='bold'
-					className='icon'
+					weight="bold"
+					className="icon"
 				/>
 			),
 			name: "Media",
@@ -69,8 +69,8 @@ export const ProfileInfoNav: React.FC = () => {
 				<WarningCircleIcon
 					size={25}
 					color={ProfileNavMenuState == "About" ? "#FFF" : "#ad92c9"}
-					weight='bold'
-					className='icon'
+					weight="bold"
+					className="icon"
 				/>
 			),
 			name: "About",
@@ -80,7 +80,7 @@ export const ProfileInfoNav: React.FC = () => {
 		},
 	];
 	return (
-		<section className='Profile_content_right_nav'>
+		<section className="ProfileInfoNav">
 			{ButtonNavData.map((data, index) => (
 				<motion.button
 					key={index + 1}
@@ -94,7 +94,7 @@ export const ProfileInfoNav: React.FC = () => {
 					{data.name}
 					{data.name === ProfileNavMenuState && (
 						<motion.span
-							layoutId='selected'
+							layoutId="selected"
 							transition={{
 								type: "spring",
 								bounce: 0.25,

@@ -14,12 +14,11 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = ({
 	// );
 
 	return (
-		<section className='ProfileInfo'>
+		<section className="ProfileInfo">
 			<ProfilePonorama />
 			<ProfileInfoHeader />
-			<section className='ProfileInfo_content'>
-				<section className='ProfileInfo_content_left'></section>
-				<section className='ProfileInfo_content_right'>
+			<section className="ProfileInfo_content">
+				<section className="ProfileInfo_content_right">
 					<ProfileInfoNav />
 				</section>
 			</section>
