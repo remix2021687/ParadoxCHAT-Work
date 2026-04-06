@@ -9,10 +9,10 @@
 	.ProfileInfo_content {
 		display: flex;
 		flex-direction: row;
-		justify-content: flex-start;
+		justify-content: space-between;
 		width: 80%;
 
-		.ProfileInfo_content_right {
+		.ProfileInfo_content_left {
 			width: 60%;
 		}
 	}

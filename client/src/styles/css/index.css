@@ -1745,11 +1745,133 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  width: 100%;
+  padding: 24px 80px 0 180px;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   gap: 20px;
-  width: 80%;
-  padding: 0 80px;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_right {
+  width: 33%;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_right .ProfileStateBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background-color: rgba(255, 255, 255, 0.01);
+  border: 1px solid #4d3267;
+  border-radius: 12px;
+  width: 100%;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_right .ProfileStateBox button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 8px;
+  height: 70px;
+  -webkit-box-shadow: 0px 9px 15px -3px rgba(127, 19, 236, 0.3);
+          box-shadow: 0px 9px 15px -3px rgba(127, 19, 236, 0.3);
+  border: none;
+  border-radius: 8px;
+  background-color: #7f13ec;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_right .ProfileStateBox .ProfileStateBox_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_right .ProfileStateBox .ProfileStateBox_header h2 {
+  color: white;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_right .ProfileStateBox .ProfileStateBox_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_right .ProfileStateBox .ProfileStateBox_content .ProfileStateBox_content_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_right .ProfileStateBox .ProfileStateBox_content .ProfileStateBox_content_box h4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 12px;
+  font-weight: 400;
+  color: #ad92c9;
+}
+.ProfilePage .ProfilePage_content .ProfilePage_content_right .ProfileStateBox .ProfileStateBox_content .ProfileStateBox_content_box span {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
 }
 
 .ProfilePonorama {
@@ -1816,12 +1938,12 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 80%;
 }
-.ProfileInfo .ProfileInfo_content .ProfileInfo_content_right {
+.ProfileInfo .ProfileInfo_content .ProfileInfo_content_left {
   width: 60%;
 }
 
@@ -2529,6 +2651,41 @@ body {
 }
 .MinePostBox .MinePostBox_info span {
   font-size: 10px;
+  color: #ad92c9;
+}
+
+.ProfilePostBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+}
+.ProfilePostBox img {
+  border: 1px solid #4d3267;
+  border-radius: 12px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ProfilePostBox .ProfilePostBox_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4px;
+}
+.ProfilePostBox .ProfilePostBox_content h2 {
+  color: white;
+}
+.ProfilePostBox .ProfilePostBox_content span {
+  font-size: 14px;
   color: #ad92c9;
 }
 

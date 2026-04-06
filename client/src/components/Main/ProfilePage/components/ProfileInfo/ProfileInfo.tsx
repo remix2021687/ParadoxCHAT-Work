@@ -18,7 +18,7 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = ({
 			<ProfilePonorama />
 			<ProfileInfoHeader />
 			<section className="ProfileInfo_content">
-				<section className="ProfileInfo_content_right">
+				<section className="ProfileInfo_content_left">
 					<ProfileInfoNav />
 				</section>
 			</section>
