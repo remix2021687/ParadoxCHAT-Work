@@ -7,27 +7,36 @@ interface RouterProps {
 }
 
 export const RouterComponent: React.FC<RouterProps> = ({ components }) => {
-	const { HomePage, VerifyPage, AuthPage, RootLayout } = components;
+	const {
+		HomePage,
+		VerifyPage,
+		PostPage,
+		AuthPage,
+		ProfilePage,
+		RootLayout,
+		Page404,
+	} = components;
 
 	return (
 		<Routes>
 			<Route
 				index
-				element={
-					<PageTemplate
-						Layout={RootLayout}
-						Content={HomePage}
-					/>
-				}
+				element={<PageTemplate Layout={RootLayout} Content={HomePage} />}
 			/>
+			<Route path='auth/' element={<AuthPage />} />
+
+			<Route path='auth/verify/' element={<VerifyPage />} />
+
 			<Route
-				path="auth/"
-				element={<AuthPage />}
+				path='post/:id/'
+				element={<PageTemplate Layout={RootLayout} Content={PostPage} />}
 			/>
+
 			<Route
-				path="auth/verify/"
-				element={<VerifyPage />}
+				path='profile/:id/'
+				element={<PageTemplate Layout={RootLayout} Content={ProfilePage} />}
 			/>
+			<Route path='*' element={<Page404 />} />
 		</Routes>
 	);
 };

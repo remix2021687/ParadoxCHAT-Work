@@ -1,0 +1,20 @@
+.RecommendationPosts {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	background-color: #1d1428;
+	border: 1px solid #3d2a52;
+	border-radius: 16px;
+	width: 25%;
+	gap: 32px;
+
+	h2 {
+		color: white;
+	}
+
+	.RecommendationPosts_content {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+}
