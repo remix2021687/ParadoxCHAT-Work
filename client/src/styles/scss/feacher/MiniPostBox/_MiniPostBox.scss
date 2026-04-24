@@ -1,0 +1,28 @@
+.MinePostBox {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	gap: 12px;
+
+	img {
+		width: 30%;
+		object-fit: cover;
+		border-radius: 16px;
+	}
+
+	.MinePostBox_info {
+		display: flex;
+		flex-direction: column;
+
+		h1 {
+			color: white;
+		}
+
+		span {
+			font-size: 10px;
+			color: #ad92c9;
+		}
+	}
+}
