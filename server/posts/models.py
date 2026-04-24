@@ -1,10 +1,13 @@
+import os
 import uuid
+
+from django.core.validators import FileExtensionValidator
 from django.db import models
 
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    photo = models.ImageField(upload_to="posts/photos", blank=True)
-    video = models.FileField(upload_to="posts/videos", blank=True)
+    # photo = models.ImageField(upload_to="posts/photos", blank=True)
+    # video = models.FileField(upload_to="posts/videos", blank=True)
     title = models.CharField(max_length=255, blank=False, null=False)
     content = models.TextField(blank=False, null=False, max_length=3000)
     user = models.ForeignKey('users.CustomUser', on_delete=models.CASCADE, related_name="post")
@@ -23,6 +26,13 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.title} | {self.user.username}'
+
+class Media(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=255, blank=False, null=False)
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name="media")
+    media = models.FileField(upload_to='media/', null=True, blank=True, validators=[FileExtensionValidator(['jpg', 'png', 'mp4'])])
+
 
 class Comment(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
