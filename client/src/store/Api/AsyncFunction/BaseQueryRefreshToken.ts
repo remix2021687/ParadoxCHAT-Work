@@ -1,5 +1,4 @@
 import type { RootState } from "@store/store";
-import { useDispatch } from "react-redux";
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { AuthLogin, AuthLogout } from "@store/Api/AuthSlice";
 
@@ -21,7 +20,6 @@ export const BaseQueryWithRefreshToken = async (
 	api: any,
 	extraOptions: any,
 ) => {
-	const dispatch = useDispatch();
 	let result = await baseQuery(args, api, extraOptions);
 
 	if (result?.error && result.error.status === 401) {
@@ -39,14 +37,14 @@ export const BaseQueryWithRefreshToken = async (
 			);
 
 			if (refreshResult.data) {
-				dispatch(AuthLogin(refreshResult.data as any));
+				api.dispatch(AuthLogin(refreshResult.data as any));
 
 				result = await baseQuery(args, api, extraOptions);
 			} else {
-				dispatch(AuthLogout());
+				api.dispatch(AuthLogout());
 			}
 		} else {
-			dispatch(AuthLogout());
+			api.dispatch(AuthLogout());
 		}
 	}
 	return result;
