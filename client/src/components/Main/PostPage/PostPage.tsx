@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 import { VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 import { PostInfo } from "./components/PostInfo/PostInfo";
-import video from "@assets/video/331030_medium.mp4";
+import video from "@assets/video/360527_medium.mp4";
 import { Comments } from "./components/Comments/Comments";
 import { RecommendationPosts } from "./components/RecommendationPosts/RecommendationPosts";
 
